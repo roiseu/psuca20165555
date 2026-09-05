@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roise Uddin — Researcher, Engineer, Educator</title>
+<meta name="description" content="Roise Uddin — Adjunct Professor & IT Manager at Pacific States University. AI/ML researcher in medical imaging, federated learning and cybersecurity. IEEE Senior Member.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F141B;
+    --ink-2:#161D27;
+    --ink-3:#1D2530;
+    --paper:#ECE7D8;
+    --paper-dim:#A9A79B;
+    --teal:#5FBDB0;
+    --teal-dim:#3E7D74;
+    --amber:#E2A94C;
+    --line: rgba(236,231,216,0.14);
+    --line-strong: rgba(236,231,216,0.28);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, Segoe UI, sans-serif;
+    --mono: 'IBM Plex Mono', Menlo, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  ::selection{background:var(--teal); color:var(--ink);}
+
+  .skip-link{
+    position:absolute; left:-999px; top:0; background:var(--teal); color:var(--ink);
+    padding:10px 16px; z-index:100; font-family:var(--sans); font-weight:600;
+  }
+  .skip-link:focus{left:12px; top:12px;}
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  /* ---------- Layout shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns: 240px 1fr;
+    max-width:1240px;
+    margin:0 auto;
+  }
+
+  nav.rail{
+    position:sticky; top:0; align-self:start;
+    height:100vh;
+    padding:40px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border-right:1px solid var(--line);
+  }
+  .rail-top .mark{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    font-weight:600;
+    letter-spacing:0.01em;
+    text-decoration:none;
+    display:block;
+    margin-bottom:44px;
+  }
+  .rail-top .mark span{color:var(--teal);}
+
+  .rail-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px;}
+  .rail-links li a{
+    text-decoration:none;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    padding:8px 0;
+    color:var(--paper-dim);
+    font-size:0.92rem;
+    border-left:2px solid transparent;
+    padding-left:12px;
+    margin-left:-12px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .rail-links li a:hover, .rail-links li a:focus-visible{color:var(--paper); border-left-color:var(--teal);}
+  .rail-links li a .idx{font-family:var(--mono); font-size:0.72rem; color:var(--teal-dim);}
+
+  .rail-bottom{font-family:var(--mono); font-size:0.72rem; color:var(--paper-dim); line-height:1.7;}
+  .rail-bottom a{text-decoration:none; border-bottom:1px solid transparent;}
+  .rail-bottom a:hover{border-bottom-color:var(--teal); color:var(--teal);}
+
+  main{padding: 0 56px 120px; min-width:0;}
+
+  section{padding:96px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--teal);
+    margin:0 0 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--teal-dim); display:inline-block;}
+
+  h1,h2,h3{font-family:var(--serif); font-weight:600; margin:0; color:var(--paper);}
+  h2{font-size:2rem; letter-spacing:-0.01em; margin-bottom:36px; max-width:20ch;}
+
+  p{max-width:62ch; color:#D9D4C4;}
+  .lede{font-size:1.1rem; color:var(--paper);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:64px;}
+  .hero-grid{display:grid; grid-template-columns: 1.15fr 0.85fr; gap:48px; align-items:center;}
+  .hero h1{font-size:3.1rem; line-height:1.08; letter-spacing:-0.015em;}
+  .hero h1 em{font-style:italic; color:var(--teal); font-weight:500;}
+  .hero .role{
+    font-family:var(--mono); font-size:0.88rem; color:var(--paper-dim);
+    margin-top:22px; line-height:1.9;
+  }
+  .hero .role strong{color:var(--paper); font-weight:500;}
+  .hero-actions{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--sans); font-size:0.9rem; font-weight:600;
+    padding:12px 20px; text-decoration:none; border-radius:2px;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line-strong);
+  }
+  .btn-solid{background:var(--teal); color:var(--ink); border-color:var(--teal);}
+  .btn-solid:hover{background:#78CBBF;}
+  .btn-ghost{color:var(--paper); }
+  .btn-ghost:hover{border-color:var(--teal); color:var(--teal);}
+
+  .signal-wrap{
+    border:1px solid var(--line);
+    background:var(--ink-2);
+    padding:20px;
+  }
+  .signal-wrap svg{width:100%; height:auto; display:block;}
+  .signal-caption{font-family:var(--mono); font-size:0.68rem; color:var(--paper-dim); margin-top:10px; display:flex; justify-content:space-between;}
+
+  .signal-path{
+    fill:none; stroke:var(--teal); stroke-width:1.6;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 2.4s ease-out forwards;
+  }
+  .signal-grid line{stroke:var(--line);}
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @media (prefers-reduced-motion: reduce){
+    .signal-path{animation:none; stroke-dashoffset:0;}
+  }
+
+  /* ---------- About ---------- */
+  .about-cols{display:grid; grid-template-columns: 1.3fr 1fr; gap:56px;}
+  .cred-list{list-style:none; margin:24px 0 0; padding:0; border-top:1px solid var(--line);}
+  .cred-list li{
+    display:grid; grid-template-columns: 100px 1fr;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.92rem;
+  }
+  .cred-list li .tag{font-family:var(--mono); font-size:0.72rem; color:var(--teal-dim); align-self:start; padding-top:2px;}
+  .cred-list li .val{color:var(--paper);}
+
+  /* ---------- Research (log table) ---------- */
+  .log{border-top:1px solid var(--line);}
+  .log-row{
+    display:grid; grid-template-columns: 90px 1fr 140px;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .log-row .lg-status{font-family:var(--mono); font-size:0.72rem; color:var(--paper-dim); padding-top:4px;}
+  .log-row .lg-status.active{color:var(--amber);}
+  .log-row .lg-status.done{color:var(--teal);}
+  .log-row h3{font-size:1.08rem; font-weight:500; margin-bottom:6px; color:var(--paper);}
+  .log-row p{margin:0; font-size:0.92rem; color:#B9B4A4;}
+  .log-row .lg-venue{font-family:var(--mono); font-size:0.76rem; color:var(--paper-dim); text-align:right; padding-top:4px;}
+
+  /* ---------- Teaching ---------- */
+  .teach-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .teach-card{background:var(--ink); padding:26px 22px;}
+  .teach-card .code{font-family:var(--mono); font-size:0.78rem; color:var(--teal);}
+  .teach-card h3{font-size:1.05rem; margin:10px 0 8px; font-weight:500;}
+  .teach-card p{font-size:0.87rem; margin:0; color:#B9B4A4;}
+  .teach-note{margin-top:32px; font-size:0.92rem; color:#B9B4A4;}
+
+  /* ---------- Products ---------- */
+  .products{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px;}
+  .product{background:var(--ink); padding:30px 28px;}
+  .product .stack{font-family:var(--mono); font-size:0.68rem; color:var(--teal-dim); margin-bottom:12px; letter-spacing:0.02em;}
+  .product h3{font-size:1.15rem; font-weight:500; margin-bottom:10px;}
+  .product p{font-size:0.9rem; margin:0; color:#B9B4A4;}
+  .more-note{margin-top:26px; font-size:0.88rem; color:var(--paper-dim);}
+  .more-note a{color:var(--teal); text-decoration:none; border-bottom:1px solid var(--teal-dim);}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:end;}
+  .contact-links{list-style:none; margin:26px 0 0; padding:0;}
+  .contact-links li{border-top:1px solid var(--line);}
+  .contact-links li:last-child{border-bottom:1px solid var(--line);}
+  .contact-links a{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 4px; text-decoration:none; font-family:var(--serif); font-size:1.3rem; color:var(--paper);
+  }
+  .contact-links a .arrow{font-family:var(--mono); font-size:0.85rem; color:var(--teal); transition:transform .15s ease;}
+  .contact-links a:hover .arrow{transform:translateX(4px);}
+  .contact-links a:hover{color:var(--teal);}
+
+  footer{
+    padding:32px 56px 40px;
+    font-family:var(--mono); font-size:0.72rem; color:var(--paper-dim);
+    display:flex; justify-content:space-between;
+  }
+
+  /* ---------- Mobile nav ---------- */
+  .mobile-bar{display:none;}
+
+  @media (max-width: 900px){
+    .shell{grid-template-columns:1fr;}
+    nav.rail{
+      position:sticky; height:auto; flex-direction:row; align-items:center;
+      justify-content:space-between; padding:18px 20px; border-right:none; border-bottom:1px solid var(--line);
+      z-index:20; background:var(--ink);
+    }
+    .rail-top .mark{margin-bottom:0;}
+    .rail-links{display:none;}
+    .rail-bottom{display:none;}
+    main{padding:0 20px 80px;}
+    section{padding:64px 0;}
+    .hero-grid, .about-cols, .contact-grid{grid-template-columns:1fr;}
+    .hero-grid{gap:36px;}
+    .hero h1{font-size:2.2rem;}
+    .teach-grid, .products{grid-template-columns:1fr;}
+    .log-row{grid-template-columns:70px 1fr; }
+    .log-row .lg-venue{grid-column:2; text-align:left; padding-top:0;}
+    footer{padding:24px 20px; flex-direction:column; gap:6px;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="shell">
+  <nav class="rail" aria-label="Primary">
+    <div class="rail-top">
+      <a class="mark" href="#top">Roise<span>.</span>Uddin</a>
+      <ul class="rail-links">
+        <li><a href="#about"><span class="idx">01</span> About</a></li>
+        <li><a href="#research"><span class="idx">02</span> Research</a></li>
+        <li><a href="#teaching"><span class="idx">03</span> Teaching</a></li>
+        <li><a href="#products"><span class="idx">04</span> Built &amp; Shipped</a></li>
+        <li><a href="#contact"><span class="idx">05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="rail-bottom">
+      Los Angeles, CA<br>
+      <a href="https://github.com/roiseuddinrasel" target="_blank" rel="noopener">github.com/roiseuddinrasel</a><br>
+      <a href="https://linkedin.com/in/roiseuddinr" target="_blank" rel="noopener">linkedin.com/in/roiseuddinr</a>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Researcher / Educator / Builder</p>
+          <h1>Teaching machines to <em>read signals</em> — and the systems around them to hold up.</h1>
+          <p class="role">
+            <strong>Adjunct Professor &amp; IT Manager</strong> — Pacific States University, Los Angeles<br>
+            <strong>IEEE Senior Member</strong> — AI/ML research in medical imaging, federated learning &amp; cybersecurity<br>
+            <strong>PhD candidate</strong> — Computer Science, AI/ML
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#research">See the research</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="signal-wrap" aria-hidden="true">
+          <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+            <g class="signal-grid">
+              <line x1="0" y1="55" x2="400" y2="55"></line>
+              <line x1="0" y1="110" x2="400" y2="110"></line>
+              <line x1="0" y1="165" x2="400" y2="165"></line>
+            </g>
+            <path class="signal-path" d="M0,110 L40,110 L55,110 L65,60 L78,170 L92,110 L120,110 L140,110 L152,90 L164,110 L180,110 C 195,110 195,60 210,60 L235,60 L235,160 L260,160 L260,60 L285,60 L285,140 L310,140 L310,80 L330,80 L330,110 L400,110" />
+          </svg>
+          <div class="signal-caption"><span>lead-I / single-channel</span><span>ECG → circuit trace</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <p class="eyebrow">01 — About</p>
+      <h2>Working the seam between healthcare AI and the security it has to survive in.</h2>
+      <div class="about-cols">
+        <div>
+          <p class="lede">I split my time between a classroom, a server room, and a manuscript queue. At Pacific States University — part of the Konkuk University Foundation — I teach STEM courses and run the IT and cybersecurity infrastructure, which keeps my research grounded in systems that have to actually stay up.</p>
+          <p>My research looks at where AI meets fragile, high-stakes data: single-lead ECG signals from wearables, diabetic foot ulcer imaging, sepsis prediction from clinical time series, and the federated and adversarial conditions that determine whether any of it survives contact with a real hospital network. The same instinct shows up in my cybersecurity work — malware analysis tooling, threat detection pipelines, blockchain-based defense — built by someone who also has to patch the systems the students use.</p>
+        </div>
+        <ul class="cred-list">
+          <li><span class="tag">Education</span><span class="val">MBA, Cybersecurity — CSUSB<br>B.S., Electrical &amp; Electronic Engineering</span></li>
+          <li><span class="tag">Status</span><span class="val">IEEE Senior Member<br>PhD candidate, Computer Science (AI/ML)</span></li>
+          <li><span class="tag">Prior roles</span><span class="val">Transfotech Global — web application security testing<br>ANDRITZ · Xinxiang HeXie</span></li>
+          <li><span class="tag">Reviewing</span><span class="val">Peer reviewer for academic journals in AI/ML and cybersecurity</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="research">
+      <p class="eyebrow">02 — Research</p>
+      <h2>Manuscripts &amp; conference work, in progress and in print.</h2>
+      <div class="log">
+        <div class="log-row">
+          <span class="lg-status active">In revision</span>
+          <div>
+            <h3>Lightweight Deep Learning for Atrial Fibrillation Detection from Single-Lead Wearable ECG</h3>
+            <p>Corresponding author. A compact detection model built for the constraints of consumer wearable hardware rather than clinical-grade leads.</p>
+          </div>
+          <span class="lg-venue">Under review</span>
+        </div>
+        <div class="log-row">
+          <span class="lg-status active">Submitted</span>
+          <div>
+            <h3>DFU-MambaKAN</h3>
+            <p>A Mamba/KAN-based architecture for diabetic foot ulcer classification from imaging data.</p>
+          </div>
+          <span class="lg-venue">MDPI Diagnostics</span>
+        </div>
+        <div class="log-row">
+          <span class="lg-status done">Completed</span>
+          <div>
+            <h3>DeepTemporal-Sepsis</h3>
+            <p>Temporal deep learning for early sepsis prediction from clinical time-series data.</p>
+          </div>
+          <span class="lg-venue">MDPI BioMedInformatics</span>
+        </div>
+        <div class="log-row">
+          <span class="lg-status done">Published</span>
+          <div>
+            <h3>FedXAI-MalNet · BlockShield · ThreatShield-AI</h3>
+            <p>Conference work on federated learning, explainable malware detection, and blockchain-secured threat defense.</p>
+          </div>
+          <span class="lg-venue">IEEE</span>
+        </div>
+        <div class="log-row">
+          <span class="lg-status done">Published</span>
+          <div>
+            <h3>Fisheries governance &amp; AI</h3>
+            <p>Applying AI methods to fisheries governance and policy modeling.</p>
+          </div>
+          <span class="lg-venue">IEEE</span>
+        </div>
+      </div>
+      <p class="teach-note">Full list of publications across IEEE, Springer, and Elsevier venues on request or via <a href="https://roiseuddin.com" target="_blank" rel="noopener" style="color:var(--teal); border-bottom:1px solid var(--teal-dim); text-decoration:none;">roiseuddin.com</a>.</p>
+    </section>
+
+    <section id="teaching">
+      <p class="eyebrow">03 — Teaching &amp; Institution</p>
+      <h2>Course design and the infrastructure underneath it.</h2>
+      <div class="teach-grid">
+        <div class="teach-card">
+          <span class="code">STEM 105</span>
+          <h3>Course design &amp; delivery</h3>
+          <p>Full material development — lectures, labs, assessment — for the STEM 105 sequence.</p>
+        </div>
+        <div class="teach-card">
+          <span class="code">STEM 111</span>
+          <h3>Course design &amp; delivery</h3>
+          <p>Curriculum built for a hands-on, applied approach to foundational STEM content.</p>
+        </div>
+        <div class="teach-card">
+          <span class="code">STEM 202</span>
+          <h3>Course design &amp; delivery</h3>
+          <p>Advanced coursework materials aligned with institutional accreditation requirements.</p>
+        </div>
+      </div>
+      <p class="teach-note">Beyond the classroom: PSU's IT and cybersecurity infrastructure, ACCSC compliance gap analysis, and faculty orientation materials — plus organizing <strong style="color:var(--paper);">ETIC 2026</strong>, an IEEE SMC co-sponsored conference hosted at PSU.</p>
+    </section>
+
+    <section id="products">
+      <p class="eyebrow">04 — Built &amp; Shipped</p>
+      <h2>Software that shipped, not just prototypes.</h2>
+      <div class="products">
+        <div class="product">
+          <div class="stack">FASTAPI · YOLO · TAURI · SQLALCHEMY</div>
+          <h3>AegisVision</h3>
+          <p>Enterprise CCTV/IP-camera threat detection platform — multi-category AI detection, escalation engine, JWT/RBAC, packaged as a native desktop app for Windows, macOS, and Linux.</p>
+        </div>
+        <div class="product">
+          <div class="stack">PYTHON · REVERSIBLE QUARANTINE</div>
+          <h3>ArtifactHound</h3>
+          <p>A DFIR and malware analysis toolkit built around a reversible quarantine design, so nothing gets destroyed before it's understood.</p>
+        </div>
+        <div class="product">
+          <div class="stack">REACT NATIVE · EXPO · EXPRESS · MONGODB</div>
+          <h3>Legacy Vault</h3>
+          <p>A digital estate management app, end-to-end from mobile client to backend, deployed via Vercel and EAS Build.</p>
+        </div>
+        <div class="product">
+          <div class="stack">NEXT.JS · DRIZZLE · NEON · SSE</div>
+          <h3>Desh TV ENPS</h3>
+          <p>An Electronic News Production System for a live newsroom — rundown management, teleprompter, and real-time collaboration over SSE.</p>
+        </div>
+        <div class="product">
+          <div class="stack">NEXT.JS · VERCEL AI SDK · PGVECTOR</div>
+          <h3>ARIA</h3>
+          <p>A personal AI assistant architected with Claude models, vector search, and a full API layer behind a dark editorial UI.</p>
+        </div>
+        <div class="product">
+          <div class="stack">NEXT.JS · DRIZZLE · BETTER AUTH</div>
+          <h3>niyenin</h3>
+          <p>A multivendor marketplace with vendor onboarding, offers management, and support for Bangladeshi payment methods.</p>
+        </div>
+      </div>
+      <p class="more-note">Plus Digital Connect News (a newsroom CMS), Sentinel (a Windows security scanner), and a run of client sites and internal PSU tools. More on <a href="https://github.com/roiseuddinrasel" target="_blank" rel="noopener">GitHub</a>.</p>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow">05 — Contact</p>
+      <div class="contact-grid">
+        <div>
+          <h2 style="margin-bottom:14px;">Working on something at the intersection of AI, healthcare data, or security? I'd like to hear about it.</h2>
+          <p>Open to research collaboration, peer review, speaking, and consulting.</p>
+        </div>
+        <ul class="contact-links">
+          <li><a href="https://roiseuddin.com" target="_blank" rel="noopener">Website <span class="arrow">→</span></a></li>
+          <li><a href="https://github.com/roiseuddinrasel" target="_blank" rel="noopener">GitHub <span class="arrow">→</span></a></li>
+          <li><a href="https://linkedin.com/in/roiseuddinr" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <span>© <span id="year"></span> Roise Uddin</span>
+  <span>Los Angeles, CA</span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
